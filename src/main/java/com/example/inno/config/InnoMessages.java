@@ -7,32 +7,27 @@
  * Date: Dec 28, 2017
  * Copyright 2017 innoirvinge@gmail.com
  */
-package com.example.inno.model;
+package com.example.inno.config;
 
-import com.example.inno.config.InnoMessages.Code;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import org.joda.time.DateTime;
+import org.springframework.context.support.MessageSourceAccessor;
 
 /**
  * @author irving09 <innoirvinge@gmail.com>
  */
-@Getter
-@Setter
+
 @Builder
 @AllArgsConstructor
-public class InnoErrorResponse {
+public class InnoMessages {
 
-    private String message;
+    private MessageSourceAccessor accessor;
 
-    private DateTime timeStamp;
-
-    private Code code;
-
-    public String getTimeStamp() {
-        return timeStamp.toString();
+    public String get(final Code code) {
+        return accessor.getMessage(code.toString());
     }
 
+    public enum Code {
+        INTERNAL_SERVER_ERROR
+    }
 }

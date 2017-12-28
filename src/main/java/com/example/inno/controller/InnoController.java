@@ -28,7 +28,7 @@ public class InnoController {
         value = "/test1",
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<String> test() {
+    public ResponseEntity<String> test() throws Exception {
         return ResponseEntity.ok("{ message: \"hello world\"}");
     }
 
