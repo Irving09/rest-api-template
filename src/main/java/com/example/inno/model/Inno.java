@@ -9,8 +9,26 @@
  */
 package com.example.inno.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * @author irving09 <innoirvinge@gmail.com>
  */
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Inno {
+
+    private String firstName;
+
+    private String lastName;
+
+    private Company company;
+
 }

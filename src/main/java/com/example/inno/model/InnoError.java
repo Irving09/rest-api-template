@@ -23,7 +23,7 @@ import org.joda.time.DateTime;
 @Setter
 @Builder
 @AllArgsConstructor
-public class InnoErrorResponse {
+public class InnoError {
 
     private String message;
 

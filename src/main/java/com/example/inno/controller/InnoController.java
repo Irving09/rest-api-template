@@ -9,6 +9,8 @@
  */
 package com.example.inno.controller;
 
+import com.example.inno.model.Inno;
+import com.example.inno.service.InnoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +26,19 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/v1/inno")
 public class InnoController {
 
+    private final InnoService service;
+
+    public InnoController(final InnoService service) {
+        this.service = service;
+    }
+
     @GetMapping(
         value = "/test1",
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<String> test() throws Exception {
-        return ResponseEntity.ok("{ message: \"hello world\"}");
+    public ResponseEntity<Inno> test() {
+        final Inno response = service.gettInno();
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping(
