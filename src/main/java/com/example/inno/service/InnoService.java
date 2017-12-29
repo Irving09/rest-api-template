@@ -19,9 +19,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class InnoService {
 
-    public Inno gettInno() {
-        // TODO make call to db here
+    public Inno get(final long id) {
+        // TODO make call to db here using id
         return Inno.builder()
+                .id(id)
                 .firstName("inno")
                 .lastName("estrera")
                 .company(Company.builder()

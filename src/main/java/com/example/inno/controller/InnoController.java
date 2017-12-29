@@ -10,9 +10,13 @@
 package com.example.inno.controller;
 
 import com.example.inno.model.Inno;
+import com.example.inno.model.InnoRequest;
 import com.example.inno.service.InnoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,19 +37,20 @@ public class InnoController {
     }
 
     @GetMapping(
-        value = "/test1",
+        value = "/{id}",
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<Inno> test() {
-        final Inno response = service.gettInno();
+    public ResponseEntity<Inno> getInno(@PathVariable("id") final long id) {
+        final Inno response = service.get(id);
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping(
+    @PostMapping(
         value = "/test2",
+        consumes = APPLICATION_JSON_VALUE,
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<String> test2() {
+    public ResponseEntity<String> createInno(@RequestBody InnoRequest request) {
         return ResponseEntity.ok("{ message: \"hello world 2\"}");
     }
 

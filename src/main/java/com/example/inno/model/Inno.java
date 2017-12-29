@@ -25,6 +25,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Inno {
 
+    private long id;
+
     private String firstName;
 
     private String lastName;

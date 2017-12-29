@@ -40,7 +40,7 @@ public class InnoGlobalExceptionHandler {
                 messageSourceConfig.get(INTERNAL_SERVER_ERROR),
                 ex.getMessage());
 
-        InnoError errorResponse = InnoError.builder()
+        InnoError error = InnoError.builder()
                 .message(message)
                 .timeStamp(DateTime.now())
                 .code(INTERNAL_SERVER_ERROR)
@@ -48,7 +48,7 @@ public class InnoGlobalExceptionHandler {
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(errorResponse);
+                .body(error);
     }
 
 }
