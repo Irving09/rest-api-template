@@ -20,6 +20,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import javax.servlet.http.HttpServletRequest;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -46,12 +52,21 @@ public class InnoController {
     }
 
     @PostMapping(
-        value = "/test2",
         consumes = APPLICATION_JSON_VALUE,
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<String> createInno(@RequestBody InnoRequest request) {
-        return ResponseEntity.ok("{ message: \"hello world 2\"}");
+    public ResponseEntity<Inno> createInno(@RequestBody InnoRequest innoRequest, final HttpServletRequest request) throws URISyntaxException {
+        final long id = service.create(innoRequest);
+        final Inno created = service.get(id);
+
+        UriComponents location = UriComponentsBuilder
+                .fromUriString(request.getRequestURL().toString())
+                .path(Long.toString(created.getId()))
+                .build();
+
+        return ResponseEntity
+                .created(new URI(location.toString()))
+                .body(created);
     }
 
 }

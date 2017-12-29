@@ -25,7 +25,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Company {
 
-    private int id;
+    private long id;
 
     private String name;
 
