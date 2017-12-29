@@ -4,7 +4,7 @@
  * All Rights Reserved.  Unauthorized reproduction, transmission, or
  * distribution of this software is a violation of applicable laws.
  * <p>
- * Date: Dec 28, 2017
+ * Date: Dec 29, 2017
  * Copyright 2017 innoirvinge@gmail.com
  */
 package com.example.inno.model;
@@ -23,10 +23,10 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class InnoRequest {
+public class CreateCompanyRequest {
 
-    private String firstName;
+    private String companyName;
 
-    private String lastName;
+    private String address;
 
 }

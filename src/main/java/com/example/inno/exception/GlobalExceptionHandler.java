@@ -26,7 +26,7 @@ import static com.example.inno.config.InnoMessages.Code.INTERNAL_SERVER_ERROR;
  * @author irving09 <innoirvinge@gmail.com>
  */
 @ControllerAdvice
-public class InnoGlobalExceptionHandler {
+public class GlobalExceptionHandler {
 
     @Autowired
     private InnoMessages messageSourceConfig;

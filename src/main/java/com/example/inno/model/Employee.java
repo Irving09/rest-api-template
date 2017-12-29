@@ -27,12 +27,14 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company {
+public class Employee {
 
     private long id;
 
-    private String name;
+    private String firstName;
 
-    private String address;
+    private String lastName;
+
+    private Company company;
 
 }

@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InnoApplication {
+public class RestApiTemplateStarter {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InnoApplication.class, args);
+		SpringApplication.run(RestApiTemplateStarter.class, args);
 	}
 }

@@ -13,6 +13,7 @@ import com.example.inno.config.InnoMessages.Code;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.joda.time.DateTime;
 
@@ -22,6 +23,7 @@ import org.joda.time.DateTime;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 public class InnoError {
 

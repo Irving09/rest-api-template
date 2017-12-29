@@ -23,14 +23,12 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Inno {
-
-    private long id;
+public class CreateEmployeeRequest {
 
     private String firstName;
 
     private String lastName;
 
-    private Company company;
+    private String socialSecurity;
 
 }
