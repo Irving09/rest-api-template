@@ -83,5 +83,13 @@ public class CompanyService {
 
     public void updateCompany(long companyId, UpdateCompanyRequest request) {
         // TODO make call to db here using id and request
+        // TODO make service level validations ehre
+    }
+
+
+    public Employee removeEmployee(final long companyId, final long employeeId) {
+        // TODO make call to db here using id and request
+        // TODO make service level validations ehre
+        return getEmployee(companyId, employeeId);
     }
 }
