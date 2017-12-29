@@ -103,17 +103,4 @@ public class EmployeeController {
         return ResponseEntity.ok(response);
     }
 
-    /*
-
-    GET /company/{id}/employee
-        returns a list of all employess under this single company
-    GET /company/{id}/employee/{id}
-        returns a single employee from this company
-    PUT /company/{id}/employee/{id}
-        updates a single employee
-    POST /company/{id}/employee/{id}
-        creates a new employee under this company
-
-    */
-
 }

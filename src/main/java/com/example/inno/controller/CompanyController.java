@@ -17,12 +17,18 @@ import com.example.inno.service.CompanyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -63,32 +69,30 @@ public class CompanyController {
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<Employee> updateCompany(@PathVariable("id") final long companyId,
-                                                @RequestBody final UpdateCompanyRequest request) {
+                                                  @RequestBody final UpdateCompanyRequest request) {
         // TODO validate request
         companyService.updateCompany(companyId, request);
         return ResponseEntity.ok(null);
     }
 
-    @PutMapping(
+    @PostMapping(
         consumes = APPLICATION_JSON_VALUE,
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<Company> createCompany(@RequestBody final CreateCompanyRequest request) {
+    public ResponseEntity<Company> createCompany(@RequestBody final CreateCompanyRequest request,
+                                                 final HttpServletRequest servletRequest) throws URISyntaxException {
         // TODO validate request
         final long companyId = companyService.create(request);
         final Company created = companyService.getCompany(companyId);
-        return ResponseEntity.ok(created);
-    }
 
-    /*
-    GET /company
-        list of all companies
-    GET /company/{id}
-        returns a single company
-    PUT /company/{id}
-        updates a single company
-    POST /company/{id}
-        creates a new company
-    */
+        UriComponents location = UriComponentsBuilder
+                .fromUriString(servletRequest.getRequestURL().toString())
+                .path(Long.toString(created.getId()))
+                .build();
+
+        return ResponseEntity
+                .created(new URI(location.toString()))
+                .body(created);
+    }
 
 }
