@@ -74,8 +74,6 @@ public class EmployeeController {
     public ResponseEntity<Employee> createEmployee(@PathVariable final long companyId,
                                                    @RequestBody final CreateEmployeeRequest innoRequest,
                                                    final HttpServletRequest request) throws URISyntaxException {
-        // TODO make controller level validation
-
         final long employeeId = companyService.createEmployee(innoRequest);
         final Employee created = companyService.getEmployee(companyId, employeeId);
 
@@ -97,7 +95,6 @@ public class EmployeeController {
     public ResponseEntity updateEmployee(@PathVariable final long companyId,
                                          @PathVariable final long employeeId,
                                          @RequestBody final UpdateEmployeeRequest request) {
-        // TODO make controller level validation
         companyService.updateEmployee(companyId, employeeId, request);
         final Employee response = companyService.getEmployee(companyId, employeeId);
         return ResponseEntity.ok(response);

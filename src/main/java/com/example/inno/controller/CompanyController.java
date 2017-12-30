@@ -53,7 +53,7 @@ public class CompanyController {
         value = "/{id}",
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<Company> getCompany(@PathVariable("id") @NotNull final long companyId) {
+    public ResponseEntity<Company> getCompany(@PathVariable("id") final long companyId) {
         final Company response = companyService.getCompany(companyId);
         return ResponseEntity.ok(response);
     }
@@ -71,7 +71,6 @@ public class CompanyController {
     @ResponseBody
     public ResponseEntity<Employee> updateCompany(@PathVariable("id") final long companyId,
                                                   @RequestBody final UpdateCompanyRequest request) {
-        // TODO validate request
         companyService.updateCompany(companyId, request);
         return ResponseEntity.ok(null);
     }
@@ -82,7 +81,6 @@ public class CompanyController {
     @ResponseBody
     public ResponseEntity<Company> createCompany(@RequestBody final CreateCompanyRequest request,
                                                  final HttpServletRequest servletRequest) throws URISyntaxException {
-        // TODO validate request
         final long companyId = companyService.create(request);
         final Company created = companyService.getCompany(companyId);
 
