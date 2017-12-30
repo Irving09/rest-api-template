@@ -19,7 +19,7 @@ import org.springframework.context.support.MessageSourceAccessor;
 
 @Builder
 @AllArgsConstructor
-public class InnoMessages {
+public class ApiMessages {
 
     private MessageSourceAccessor accessor;
 
@@ -28,6 +28,7 @@ public class InnoMessages {
     }
 
     public enum Code {
-        INTERNAL_SERVER_ERROR
+        INTERNAL_SERVER_ERROR,
+        INVALID_PATH_PARAMETERS
     }
 }

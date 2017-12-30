@@ -53,7 +53,6 @@ public class EmployeeController {
             produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<List<Employee>> getAllEmployees(@PathVariable("companyId") final long companyId) {
-        // TODO make controller level validation
         final List<Employee> response = companyService.getAllEmployees(companyId);
         return ResponseEntity.ok(response);
     }
@@ -64,7 +63,6 @@ public class EmployeeController {
     @ResponseBody
     public ResponseEntity<Employee> getAllEmployees(@PathVariable("companyId") final long companyId,
                                                     @PathVariable("employeeId") final long employeeId) {
-        // TODO make controller level validation
         final Employee employee = companyService.getEmployee(companyId, employeeId);
         return ResponseEntity.ok(employee);
     }

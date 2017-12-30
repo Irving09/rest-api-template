@@ -15,6 +15,7 @@ import com.example.inno.model.Employee;
 import com.example.inno.model.UpdateCompanyRequest;
 import com.example.inno.service.CompanyService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.NotNull;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -36,6 +38,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 /**
  * @author irving09 <innoirvinge@gmail.com>
  */
+@Validated
 @RestController
 @RequestMapping("/v1/company")
 public class CompanyController {
@@ -50,8 +53,7 @@ public class CompanyController {
         value = "/{id}",
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<Company> getCompany(@PathVariable("id") final long companyId) {
-        // TODO validate path variable id
+    public ResponseEntity<Company> getCompany(@PathVariable("id") @NotNull final long companyId) {
         final Company response = companyService.getCompany(companyId);
         return ResponseEntity.ok(response);
     }
@@ -62,7 +64,6 @@ public class CompanyController {
         final List<Company> response = companyService.getAllCompanies();
         return ResponseEntity.ok(response);
     }
-
 
     @PutMapping(
         value = "/{id}",

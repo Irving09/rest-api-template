@@ -14,6 +14,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.MessageSourceAccessor;
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
 import java.util.Locale;
 
@@ -21,16 +22,21 @@ import java.util.Locale;
  * @author irving09 <innoirvinge@gmail.com>
  */
 @Configuration
-public class InnoApplicationConfig {
+public class RestApiApplicationConfig {
 
     @Autowired
     private MessageSource messageSource;
 
     @Bean
-    public InnoMessages messageSourceAccessor() {
-        return InnoMessages.builder()
+    public ApiMessages messageSourceAccessor() {
+        return ApiMessages.builder()
                 .accessor(new MessageSourceAccessor(messageSource, Locale.ENGLISH))
                 .build();
+    }
+
+    @Bean
+    public MethodValidationPostProcessor methodValidationPostProcessor() {
+        return new MethodValidationPostProcessor();
     }
 
 }

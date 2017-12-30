@@ -9,7 +9,7 @@
  */
 package com.example.inno.model;
 
-import com.example.inno.config.InnoMessages.Code;
+import com.example.inno.config.ApiMessages.Code;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,7 +25,7 @@ import org.joda.time.DateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class InnoError {
+public class ApiError {
 
     private String message;
 

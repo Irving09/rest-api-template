@@ -13,7 +13,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * @author irving09 <innoirvinge@gmail.com>
@@ -25,8 +27,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UpdateCompanyRequest {
 
+    @NotEmpty
     private String companyName;
 
+    @NotEmpty
     private String address;
 
 }

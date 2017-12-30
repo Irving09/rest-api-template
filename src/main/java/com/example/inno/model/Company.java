@@ -14,8 +14,12 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Min;
 
 /**
  * @author irving09 <innoirvinge@gmail.com>
@@ -29,10 +33,13 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Company {
 
+    @Min(0)
     private long id;
 
+    @NotEmpty
     private String name;
 
+    @NotEmpty
     private String address;
 
 }
