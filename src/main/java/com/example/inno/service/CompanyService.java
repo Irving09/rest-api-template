@@ -28,14 +28,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public class CompanyService {
 
     public List<Company> getAllCompanies() {
-        // TODO make call to db here
+        // TODO use SDK to make call to db here using ids
         List<Company> companies = new ArrayList<>();
         companies.add(getCompany(123));
         return companies;
     }
 
     public Employee getEmployee(final long companyId, final long employeeId) {
-        // TODO make call to db here using id
+        // TODO have service level validation here
+        // TODO use SDK to make call to db here using ids
         return Employee.builder()
                 .id(employeeId)
                 .firstName("inno")
@@ -49,31 +50,32 @@ public class CompanyService {
     }
 
     public List<Employee> getAllEmployees(final long companyId) {
-        // TODO make call to db here using id
+        // TODO have service level validation here
+        // TODO use SDK to make call to db here using id
         List<Employee> employees = new ArrayList<>();
         return employees;
     }
 
     public long createEmployee(final CreateEmployeeRequest request) {
-        // TODO make call to db here using id
-        // TODO make service level validation
+        // TODO have service level validation here
+        // TODO use SDK to make call to db here using id
         return ThreadLocalRandom.current().nextLong(1, Long.MAX_VALUE);
     }
 
     public long updateEmployee(final long companyId, final long employeeId, final UpdateEmployeeRequest request) {
-        // TODO make call to db here using id
-        // TODO make service level validation
+        // TODO have service level validation here
+        // TODO use SDK to make call to db here using id
         return ThreadLocalRandom.current().nextLong(1, Long.MAX_VALUE);
     }
 
     public long create(final CreateCompanyRequest request) {
-        // TODO make call to db here using id
-        // TODO make service level validation
+        // TODO have service level validation here
+        // TODO use SDK to make call to db here using id
         return ThreadLocalRandom.current().nextLong(1, Long.MAX_VALUE);
     }
 
     public Company getCompany(final long companyId) {
-        // TODO make call to db here using id
+        // TODO use SDK to make call to db here using id
         return Company.builder()
                 .id(companyId)
                 .address("605 5th Ave S #800, Seattle, WA 98104")
@@ -82,14 +84,14 @@ public class CompanyService {
     }
 
     public void updateCompany(long companyId, UpdateCompanyRequest request) {
-        // TODO make call to db here using id and request
-        // TODO make service level validations ehre
+        // TODO have service level validation here
+        // TODO use SDK to make call to db here using id
     }
 
 
     public Employee removeEmployee(final long companyId, final long employeeId) {
-        // TODO make call to db here using id and request
-        // TODO make service level validations ehre
+        // TODO have service level validation here
+        // TODO use SDK to make call to db here using ids
         return getEmployee(companyId, employeeId);
     }
 }
