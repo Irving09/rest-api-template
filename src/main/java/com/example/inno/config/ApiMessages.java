@@ -29,6 +29,8 @@ public class ApiMessages {
 
     public enum Code {
         INTERNAL_SERVER_ERROR,
-        INVALID_PATH_PARAMETERS
+        INVALID_PATH_PARAMETERS,
+        ENTITY_NOT_FOUND,
+        RESOURCE_NOT_FOUND
     }
 }

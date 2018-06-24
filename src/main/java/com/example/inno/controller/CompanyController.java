@@ -39,7 +39,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
  */
 @Validated
 @RestController
-@RequestMapping("/v1/company")
+@RequestMapping("/v1/companies")
 public class CompanyController {
 
     private final CompanyService companyService;

@@ -4,16 +4,13 @@
  * All Rights Reserved.  Unauthorized reproduction, transmission, or
  * distribution of this software is a violation of applicable laws.
  * <p>
- * Date: Dec 28, 2017
- * Copyright 2017 innoirvinge@gmail.com
+ * Date: Jun 24, 2018
+ * Copyright 2018 innoirvinge@gmail.com
  */
 package com.example.inno.model;
 
 import lombok.*;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
 
 /**
  * @author irving09 <innoirvinge@gmail.com>
@@ -25,15 +22,15 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company {
+public class Address {
 
-    @Min(0)
-    private long id;
+    private String street;
 
-    @NotEmpty
-    private String name;
+    private String city;
 
-    @NotNull
-    private Address address;
+    private String state;
+
+    @Length(min=5, max=5)
+    private String zipCode;
 
 }

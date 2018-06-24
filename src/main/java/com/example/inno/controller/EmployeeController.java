@@ -12,22 +12,12 @@ package com.example.inno.controller;
 import com.example.inno.model.CreateEmployeeRequest;
 import com.example.inno.model.Employee;
 import com.example.inno.model.UpdateEmployeeRequest;
-import com.example.inno.service.CompanyService;
+import com.example.inno.service.EmployeeService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.web.bind.annotation.*;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.servlet.http.HttpServletRequest;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -42,10 +32,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
         produces = APPLICATION_JSON_VALUE)
 public class EmployeeController {
 
-    private final CompanyService companyService;
+    private final EmployeeService employeeService;
 
-    public EmployeeController(final CompanyService companyService) {
-        this.companyService = companyService;
+    public EmployeeController(final EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @GetMapping(
@@ -53,8 +43,9 @@ public class EmployeeController {
             produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<List<Employee>> getAllEmployees(@PathVariable("companyId") final long companyId) {
-        final List<Employee> response = companyService.getAllEmployees(companyId);
-        return ResponseEntity.ok(response);
+//        final List<Employee> response = employeeService.getAllEmployees(companyId);
+//        return ResponseEntity.ok(response);
+        throw new NotImplementedException();
     }
 
     @GetMapping(
@@ -63,8 +54,9 @@ public class EmployeeController {
     @ResponseBody
     public ResponseEntity<Employee> getAllEmployees(@PathVariable("companyId") final long companyId,
                                                     @PathVariable("employeeId") final long employeeId) {
-        final Employee employee = companyService.getEmployee(companyId, employeeId);
-        return ResponseEntity.ok(employee);
+        throw new NotImplementedException();
+//        final Employee employee = employeeService.getEmployee(employeeId);
+//        return ResponseEntity.ok(employee);
     }
 
     @PostMapping(
@@ -74,17 +66,18 @@ public class EmployeeController {
     public ResponseEntity<Employee> createEmployee(@PathVariable final long companyId,
                                                    @RequestBody final CreateEmployeeRequest innoRequest,
                                                    final HttpServletRequest request) throws URISyntaxException {
-        final long employeeId = companyService.createEmployee(innoRequest);
-        final Employee created = companyService.getEmployee(companyId, employeeId);
-
-        UriComponents location = UriComponentsBuilder
-                .fromUriString(request.getRequestURL().toString())
-                .path(Long.toString(created.getId()))
-                .build();
-
-        return ResponseEntity
-                .created(new URI(location.toString()))
-                .body(created);
+        throw new NotImplementedException();
+//        final long employeeId = employeeService.createEmployee(innoRequest);
+//        final Employee created = employeeService.getEmployee(employeeId);
+//
+//        UriComponents location = UriComponentsBuilder
+//                .fromUriString(request.getRequestURL().toString())
+//                .path(Long.toString(created.getId()))
+//                .build();
+//
+//        return ResponseEntity
+//                .created(new URI(location.toString()))
+//                .body(created);
     }
 
     @PutMapping(
@@ -95,17 +88,19 @@ public class EmployeeController {
     public ResponseEntity updateEmployee(@PathVariable final long companyId,
                                          @PathVariable final long employeeId,
                                          @RequestBody final UpdateEmployeeRequest request) {
-        companyService.updateEmployee(companyId, employeeId, request);
-        final Employee response = companyService.getEmployee(companyId, employeeId);
-        return ResponseEntity.ok(response);
+//        companyService.updateEmployee(companyId, employeeId, request);
+//        final Employee response = companyService.getEmployee(companyId, employeeId);
+//        return ResponseEntity.ok(response);
+        throw new NotImplementedException();
     }
 
     @DeleteMapping("/{companyId}/employee/{employeeId}")
     @ResponseBody
     public ResponseEntity<Employee> removeEmployee(@PathVariable final long companyId,
                                                    @PathVariable final long employeeId) {
-        final Employee employee = companyService.removeEmployee(companyId, employeeId);
-        return ResponseEntity.ok(employee);
+//        final Employee employee = companyService.removeEmployee(companyId, employeeId);
+//        return ResponseEntity.ok(employee);
+        throw new NotImplementedException();
     }
 
 }

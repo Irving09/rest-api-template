@@ -1,0 +1,61 @@
+{
+  "companies": [
+    {
+      "id": 5,
+      "name": "Nordstrom Corporate Headquarters",
+      "address": {
+        "street": "1700 7th Ave",
+        "city": "Seattle",
+        "state": "WA",
+        "zipCode": 98101
+      }
+    },
+    {
+      "id": 4,
+      "name": "CDK Digital Marketing",
+      "address": {
+        "street": "605 5th Ave S #800",
+        "city": "Seattle",
+        "state": "WA",
+        "zipCode": 98104
+      }
+    },
+    {
+      "id": 3,
+      "name": "Oath",
+      "address": {
+        "street": "710 Second Avenue, Suite 800",
+        "city": "Seattle",
+        "state": "WA",
+        "zipCode": 98104
+      }
+    },
+    {
+      "id": 2,
+      "name": "Apex Learning Headquarters",
+      "address": {
+        "street": "1215 4th Avenue Suite1500",
+        "city": "Seattle",
+        "state": "WA",
+        "zipCode": 98101
+      }
+    },
+    {
+      "id": 1,
+      "name": "University of Washington",
+      "address": {
+        "street": "1900 Commerce St.",
+        "city": "Tacoma",
+        "state": "WA",
+        "zipCode": 98402
+      }
+    }
+  ],
+  "employees": [
+    {
+      "firstName": "Inno Irving",
+      "lastName": "Estrera",
+      "id": 123
+    }
+  ]
+}
