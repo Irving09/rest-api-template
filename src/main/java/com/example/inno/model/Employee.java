@@ -34,15 +34,14 @@ import javax.validation.constraints.Min;
 public class Employee {
 
     @Min(0)
-    private long id;
+    private Long id;
+
+    private Long companyId;
 
     @NotEmpty
     private String firstName;
 
     @NotEmpty
     private String lastName;
-
-    @NonNull
-    private Company company;
 
 }

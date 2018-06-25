@@ -68,7 +68,7 @@ public class CompanyController {
         value = "/{id}",
         produces = APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<Employee> updateCompany(@PathVariable("id") final long companyId,
+    public ResponseEntity<Company> updateCompany(@PathVariable("id") final long companyId,
                                                   @RequestBody final UpdateCompanyRequest request) {
         companyService.updateCompany(companyId, request);
         return ResponseEntity.ok(null);

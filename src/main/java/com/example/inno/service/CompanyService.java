@@ -14,6 +14,7 @@ import com.example.inno.model.Company;
 import com.example.inno.model.CreateCompanyRequest;
 import com.example.inno.model.UpdateCompanyRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -55,6 +56,17 @@ public class CompanyService {
     }
 
     public void updateCompany(long companyId, UpdateCompanyRequest request) {
+        Company company = getCompany(companyId);
+        company.getAddress().setStreet(request.getStreet());
+        company.getAddress().setCity(request.getCity());
+        company.getAddress().setState(request.getState());
+        company.getAddress().setZipCode(request.getZipCode());
+
+        HttpEntity<Company> updatedResource = new HttpEntity<>(company);
+        String resourceUri = String.format("%s/companies", config.getCompanyServiceHost());
+
+        httpClient.put(resourceUri, updatedResource);
+
         throw new NotImplementedException();
     }
 

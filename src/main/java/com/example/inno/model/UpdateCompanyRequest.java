@@ -31,6 +31,15 @@ public class UpdateCompanyRequest {
     private String companyName;
 
     @NotEmpty
-    private String address;
+    private String city;
+
+    @NotEmpty
+    private String state;
+
+    @NotEmpty
+    private String street;
+
+    @NotEmpty
+    private String zipCode;
 
 }
